@@ -12,7 +12,8 @@ public class Controls implements KeyListener, MouseListener, MouseWheelListener{
     // mwheel
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) {
-        System.out.println(e.getPreciseWheelRotation());
+        // System.out.println(e.getPreciseWheelRotation());
+        sendEvent(e);
         // switch (e.)
     }
     
@@ -58,7 +59,11 @@ public class Controls implements KeyListener, MouseListener, MouseWheelListener{
     
     }
 
-    public void sendEvent(MWEvent e){
+    public void addListener(MWEventListener l){
+        this.listeners.add(l);
+    }
+
+    public void sendEvent(MouseWheelEvent e){
         for (MWEventListener listener : listeners) {
             listener.handleEvent(e);
         }

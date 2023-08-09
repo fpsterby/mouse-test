@@ -10,7 +10,6 @@ public class Main {
         frame.add(v);
         frame.pack();
         frame.setVisible(true);
-
         v.startThread();
     }
 }
